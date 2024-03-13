@@ -1,4 +1,4 @@
- from flask import Flask, jsonify
+from flask import Flask, jsonify
 import logging
 
 app = Flask(__name__)
@@ -33,7 +33,7 @@ def list():
         app.logger.info("Defined a list")
         list = [1, 2, 3]
         app.logger.info("Accessing a element in list")
-        value = list[2]
+        value = list[5]
         return jsonify(message=value)
     except Exception as e:
         app.logger.error(f"Error in list: {str(e)}")
@@ -49,7 +49,7 @@ def api3():
         app.logger.info("Appending a element in list")
         list.append(4)
         app.logger.info("Finding length of the list")
-        return jsonify(message=len(list))
+        return list.length
     except Exception as e:
         app.logger.error(f"Error in list: {str(e)}")
     return jsonify(error="Internal Server Error"), 500
@@ -64,7 +64,7 @@ def api4():
         app.logger.info("Appending a element in list")
         x.append(4)
         app.logger.info("Returning the list")
-        return jsonify(message=x)
+        return y
     except Exception as e:
         app.logger.error(f"Error in list: {str(e)}")
     return jsonify(error="Internal Server Error"), 500
